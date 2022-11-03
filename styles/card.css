@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Spectral+SC:wght@200&family=Spectral:wght@200&display=swap');
+
+.card-container {
+  display: block;
+  width: 70rem;
+  height: 20rem;
+  /* border: 0.1rem solid red; */
+  position: relative;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-backdrop {
+  --backdrop-top: 65%;
+  position: absolute;
+  top: var(--backdrop-top);
+  width: 50%;
+  height: calc(100% - var(--backdrop-top));
+  background: rgb(0,0,0);
+background: linear-gradient(45deg, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0) 50%);
+}
+
+.card-title,
+.card-text {
+  font-family: 'Roboto Slab', serif;
+  font-weight: 500;
+  position: absolute;
+  color: white;
+  left: 1.5rem;
+}
+
+.card-title {
+  font-size: 2rem;
+  bottom: 1rem;
+}
+
+.card-text {
+  bottom: .6rem;
+}

@@ -11,6 +11,7 @@
 	display: block;
 	width: 100%;
 	height: 100%;
+	position: absolute;
 }
 
 .card-image {
@@ -63,7 +64,7 @@
 	color: white;
 	cursor: pointer;
 	font-size: 1.5rem;
-  padding: 0 1.5rem;
+	padding: 0 1.5rem;
 }
 
 .card-prev-button:hover,
@@ -73,7 +74,7 @@
 
 .card-prev-button {
 	left: 0%;
-  text-align: left;
+	text-align: left;
 	background: rgb(0, 0, 0);
 	background: linear-gradient(
 		90deg,
@@ -84,11 +85,51 @@
 
 .card-next-button {
 	left: calc(100% - var(--button-width));
-  text-align: right;
-  background: rgb(0, 0, 0);
+	text-align: right;
+	background: rgb(0, 0, 0);
 	background: linear-gradient(
 		90deg,
 		rgba(255, 255, 255, 0) 0%,
 		rgba(0, 0, 0, 0.5) 100%
 	);
+}
+
+.card-visible {
+	opacity: 100%;
+	transition: opacity 1s;
+}
+
+.card-nonvisible {
+	opacity: 0%;
+	transition: opacity .5s;
+}
+
+.left-to-right {
+	animation-name: left-to-right;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+.right-to-left {
+	animation-name: right-to-left;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes left-to-right {
+	from {
+		left: -20%;
+	}
+	to {
+		left: 0%;
+	}
+}
+
+@keyframes right-to-left {
+	from {
+		left: 20%;
+	}
+	to {
+		left: 0%;
+	}
 }

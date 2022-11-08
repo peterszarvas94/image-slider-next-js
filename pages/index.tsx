@@ -21,34 +21,48 @@ const Home = () => {
 		},
 	];
 
-	const [data, setData] = useState(db);
+	const [data] = useState(db);
 	const [selectedIndex, setSelectedIndex] = useState(0);
+	const [direction, setDirection] = useState("");
+
+	// const directions = ["left-to-right", "right-to-left"];
 
 	const showPrevImage = () => {
 		selectedIndex == 0
 			? setSelectedIndex(data.length - 1)
 			: setSelectedIndex(selectedIndex - 1);
+		setDirection("left-to-right");
 	};
 
 	const showNextImage = () => {
 		selectedIndex == data.length - 1
 			? setSelectedIndex(0)
 			: setSelectedIndex(selectedIndex + 1);
+		setDirection("right-to-left");
 	};
 
+	const images = data.map((element, index) => (
+		<Card
+			key={index}
+			title={element.title}
+			text={element.text}
+			image={element.image}
+			index={index}
+			class_visible={
+				index == selectedIndex ? "card-visible" : "card-nonvisible"
+			}
+			class_direction={
+				index == selectedIndex ? direction : ""
+			}
+		/>
+	));
+
 	//TODO:
-	// render all the cards
-	// opacity: 0 for non-selected
-	// add class when selected to opacity: 100%
+	// animate: 1. slide (left or right) 2. transform scale 3. opacity
 
 	return (
 		<div className="slider">
-			<Card
-				title={data[selectedIndex].title}
-				text={data[selectedIndex].text}
-				image={data[selectedIndex].image}
-				index={selectedIndex}
-			/>
+			{images}
 			<button className="card-prev-button" onClick={showPrevImage}>
 				<SlArrowLeft />
 			</button>

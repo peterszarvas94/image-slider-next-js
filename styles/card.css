@@ -3,6 +3,8 @@
 html {
 	--scale-start: 70%;
 	--sacle-end: 100%;
+	--backdrop-top: 65%;
+	--button-width: 5rem;
 }
 
 .slider {
@@ -26,7 +28,6 @@ html {
 }
 
 .card-backdrop {
-	--backdrop-top: 65%;
 	position: absolute;
 	top: var(--backdrop-top);
 	width: 50%;
@@ -60,7 +61,6 @@ html {
 .card-prev-button,
 .card-next-button {
 	opacity: 0;
-	--button-width: 5rem;
 	position: absolute;
 	top: 0;
 	height: 100%;

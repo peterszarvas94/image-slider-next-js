@@ -5,8 +5,7 @@ interface CardProps {
 	text: string;
 	image: string;
 	index: number;
-	class_visible: "card-visible" | "card-nonvisible";
-	class_direction: "left-to-right" | "right-to-left" | string;
+	class_direction: string;
 }
 
 const Card = (props: CardProps) => {
@@ -22,8 +21,6 @@ const Card = (props: CardProps) => {
 		<div
 			className={
 				"card-container " +
-				props.class_visible +
-				" " +
 				props.class_direction
 			}
 		>

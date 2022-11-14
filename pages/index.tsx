@@ -48,17 +48,9 @@ const Home = () => {
 			text={element.text}
 			image={element.image}
 			index={index}
-			class_visible={
-				index == selectedIndex ? "card-visible" : "card-nonvisible"
-			}
-			class_direction={
-				index == selectedIndex ? direction : ""
-			}
+			class_direction={index == selectedIndex ? direction : "card-nonvisible"}
 		/>
 	));
-
-	//TODO:
-	// animate: 1. slide (left or right) 2. transform scale 3. opacity
 
 	return (
 		<div className="slider">

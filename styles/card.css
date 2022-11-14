@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Spectral+SC:wght@200&family=Spectral:wght@200&display=swap");
 
+html {
+	--scale-start: 70%;
+	--sacle-end: 100%;
+}
+
 .slider {
 	display: block;
 	width: 70rem;
@@ -94,14 +99,10 @@
 	);
 }
 
-.card-visible {
-	opacity: 100%;
-	transition: opacity 1s;
-}
-
 .card-nonvisible {
-	opacity: 0%;
-	transition: opacity .5s;
+	animation-name: fade-out;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
 }
 
 .left-to-right {
@@ -116,20 +117,37 @@
 	animation-fill-mode: forwards;
 }
 
+@keyframes fade-out {
+	from {
+		opacity: 100%;
+	}
+	to {
+		opacity: 0%;
+	}
+}
+
 @keyframes left-to-right {
 	from {
 		left: -20%;
+		opacity: 0%;
+		scale: var(--scale-start);
 	}
 	to {
 		left: 0%;
+		opacity: 100%;
+		scale: var(--sacle-end);
 	}
 }
 
 @keyframes right-to-left {
 	from {
 		left: 20%;
+		opacity: 0%;
+		scale: var(--scale-start);
 	}
 	to {
 		left: 0%;
+		opacity: 100%;
+		scale: var(--sacle-end);
 	}
 }
